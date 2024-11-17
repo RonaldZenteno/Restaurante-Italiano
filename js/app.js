@@ -45,9 +45,10 @@ const observer = new IntersectionObserver((entries, observer)=>{
     }); 
 });
 
-
-imagenes.forEach(imagen=>{
-    observer.observe(imagen);
+imagenes.forEach(imagen => {
+    if (imagen.dataset.src) {
+        observer.observe(imagen);
+    }
 });
 
 const cerrarMenu = (boton, overlay) =>{
